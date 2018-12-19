@@ -5,8 +5,162 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>动态版</title>
+    <link rel="stylesheet" href="./asset/bootstrap.min.css">
+    <style>
+        html{
+            background-color: #f3f3f3;
+        }
+        .center{
+            margin:auto;
+            top:0px;
+            bottom:0px;
+            position:absolute;
+            left:0px;
+            right:0;
+        }
+        .circle{
+            border-radius: 50%;
+        }
+        .body{
+            height:80vh;
+            width:70%;
+            background-color:#76b39d;
+            border-radius: 2px;
+        }
+        table{
+            padding:10px;
+            width:100%;
+            text-align: left;
+        }
+        .body>.info{
+            color:#fff;
+            font-size:25px;
+            letter-spacing: 2px;
+        }
+        .menu{
+            width:240px;
+            height:240px;
+        }
+        .menu .controller{
+            width:80px;
+            height:80px;
+            color:#207e82;
+            background-color: #f3f9fb;
+            text-align: center;
+            line-height: 80px;
+            font-size:30px;
+        }
+        .menu .controller:hover{
+            color:#76b39d;
+            cursor: pointer;
+        }
+        .items{
+            position:relative;
+            width:240px;
+            height:240px;
+             /* 默认情况下是隐藏的 */
+             opacity: 0;
+            transform: scale(0);
+            -transform: scale(0);
+            transition:all 0.5s ease-out;
+            -webkit-transition: all 0.3s ease-out;
+            -moz-transition: all 0.3s ease-out;
+        }
+        
+        .items>div{
+            width:60px;
+            height:60px;
+            opacity: 1;
+            position:absolute;
+            text-align: center;
+            line-height: 60px;
+            color:#fff;
+            font-weight: bold;
+            font-size:30px;
+        }
+        .items >div:hover{
+            color:#eee;
+            cursor: pointer;
+        }
+        .items.open{
+            opacity: 1;
+            transform: scale(1);
+            -transform: scale(1)
+        }
+       
+    </style>
 </head>
 <body>
-    
+    <div class="body center">
+            <div class="info">
+                    <!-- <table>
+                        <tr>
+                            <td id="name"><span>王佳营</span> </td>
+                            <td id="target" style="text-align:right"><span>求职意向：前端工程师</span></td>
+                        </tr>
+                        <tr >
+                            <td id="address"><span>北京 海淀</span></td>
+                            <td id="mail" style="text-align:right"><span>w0320jy@163.com</span></td>
+                        </tr>
+                    </table> -->
+            </div>
+            <div class="menu center">
+                <div class="items">
+                    <div class="circle" id="workEx"><span class="glyphicon glyphicon-map-marker"></span></div>
+                    <div class="circle" id="eduEx"><span class="glyphicon glyphicon-education"></span></div>
+                    <div class="circle" id="skill"><span class="glyphicon glyphicon-flag"></span></div>
+                    <div class="circle" id="programe"><span class="glyphicon glyphicon-list-alt"></span></div>
+                    <div class="circle" id="selfEva"><span class="glyphicon glyphicon-user"></span></div>
+                    <div class="circle" id="hobby"><span class="glyphicon glyphicon-music"></span></div>
+                </div>
+                <div class="controller center circle"><span class="glyphicon glyphicon-align-justify"></span></div>
+            </div>
+    </div>
 </body>
+
+<script>
+    const views = {
+        menu : document.querySelector(".items"),
+        items : document.querySelectorAll(".items>div"),
+        controller: document.querySelector(".controller"),
+        workEx : document.querySelector("#workEx"),
+        eduEx :  document.querySelector("#eduEx"),
+        skill :  document.querySelector("#skill"),
+        programe :  document.querySelector("#programe"),
+        selfEva :  document.querySelector("#selfEva"),
+        hobby :  document.querySelector("#hobby"),
+
+        init: function(){
+            const len = views.items.length
+            for(let i = 0; i< len; i++){
+                views.items[i].style.left = (37 - 45*Math.cos(-0.5 * Math.PI - 2*(1/len)*i*Math.PI)).toFixed(4) + "%"
+                views.items[i].style.top = (37 + 45*Math.sin(-0.5 * Math.PI - 2*(1/len)*i*Math.PI)).toFixed(4) + "%"
+            }
+
+            views.controller.onclick = function(e){
+                e.preventDefault()
+                views.menu.classList.toggle("open")
+            }
+        },
+        renderWord: function(){
+
+        },
+        renderEdu: function(){
+
+        },
+        renderSkill: function(){
+
+        },
+        renderPrograme: function(){
+
+        },
+        renderSelf: function(){
+
+        },
+        renderHobby: function(){
+
+        }
+    }
+    views.init()
+</script>
 </html>
