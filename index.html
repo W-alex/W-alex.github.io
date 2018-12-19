@@ -1,149 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./asset/bootstrap.min.css">
     <style>
-        html{
-            margin:0;
-            padding:0;
-            font-size:14px;
-            line-height:1.5;
+        html {
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            line-height: 1.5;
             background-color: #f3f3f3;
         }
-        ul, li{
-            margin:0px;
-            padding:0px;
+
+        ul,
+        li {
+            margin: 0px;
+            padding: 0px;
             list-style-type: none;
         }
-        body{
-            width:65%;
-            margin:10px auto;
+
+        body {
+            width: 65%;
+            margin: 10px auto;
             background-color: #fff;
         }
-        table{
-            width:100%;
+
+        table {
+            width: 100%;
         }
-        td{
+
+        td {
             padding: 5px 0;
         }
-        span{
-            margin:atuo;
+
+        span {
+            margin: atuo;
         }
-        a, a:hover{
+
+        a,
+        a:hover {
             text-decoration: none;
-            color:inherit;
+            color: inherit;
         }
-        .title{
+
+        .title {
             font-weight: bold;
-            font-size:16px;
+            font-size: 16px;
         }
-        .body>#header{
-            background-color:#594129;
-            height:50px;
-            position:relative;
+
+        .body>#header {
+            background-color: #594129;
+            height: 50px;
+            position: relative;
         }
-        .body > div{
+
+        .body>div {
             padding: 0 10px;
         }
-        .body > .block{
+
+        .body>.block {
             margin: 20px 0;
         }
-        
-        .body>#header .title{
-            position: absolute;;
-            width:100px;
-            right:60px;
+
+        .body>#header .title {
+            position: absolute;
+            ;
+            width: 100px;
+            right: 60px;
             background-color: #76b39d;
-            padding:0 10px;
-            color:#fff;
-            line-height:50px;
+            padding: 0 10px;
+            color: #fff;
+            line-height: 50px;
         }
-        .body>.block>.title{
-            border-left:3px solid #2a6171;
-            background-color:#f3f9fb;
-            color:#2a6171;
-            height:40px;
+
+        .body>.block>.title {
+            border-left: 3px solid #2a6171;
+            background-color: #f3f9fb;
+            color: #2a6171;
+            height: 40px;
             line-height: 40px;
-            padding-left:10px;
-            margin:10px 0;
+            padding-left: 10px;
+            margin: 10px 0;
         }
-        #info{
-            font-size:18px;
+
+        #info {
+            font-size: 18px;
             z-index: 99;
         }
-        #name{
-            font-size:30px;
-            letter-spacing:5px;
+
+        #name {
+            font-size: 30px;
+            letter-spacing: 5px;
         }
-        #targer{
+
+        #targer {
             font-size: 20px;
         }
-        #workEx .company{
-            color:#207e82;
+
+        #workEx .company {
+            color: #207e82;
             font-weight: bold;
             padding: 0 10px;
         }
-        #skill, #project{
-            line-height:2.5;
-            padding-left:5px;
+
+        #skill,
+        #project {
+            line-height: 2.5;
+            padding-left: 5px;
         }
-         #project .li-header::before{
-            content:"\27A4";
-            color:#76b39d;
-            margin-right:5px;
+
+        #project .li-header::before {
+            content: "\27A4";
+            color: #76b39d;
+            margin-right: 5px;
         }
-        #project .li-header{
-            color:#207e82;
-            font-size:15px;
+
+        #project .li-header {
+            color: #207e82;
+            font-size: 15px;
         }
-        #project .background span, #project .content span{
-            font-weight:bold;
-            color:#207e82;
+
+        #project .background span,
+        #project .content span {
+            font-weight: bold;
+            color: #207e82;
         }
-        #skill li::before, #project .content li::before{
-            content:"\25C6";
-            color:#76b39d;
-            margin-right:5px;
+
+        #skill li::before,
+        #project .content li::before {
+            content: "\25C6";
+            color: #76b39d;
+            margin-right: 5px;
         }
-        
-        .tool, .tool>.more{
-            height:50px;
-            width:50px;
+
+        .tool,
+        .tool>.more {
+            height: 50px;
+            width: 50px;
             line-height: 50px;
             border-radius: 30px;
             background-color: #76b39d;
             text-align: center;
-            font-size:22px;
-            color:#fff;
-            position:fixed;
-            bottom:40px;
-            right:40px;
+            font-size: 22px;
+            color: #fff;
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
             /* donghua */
-            transition:all  0.3s ease-out;
+            transition: all 0.3s ease-out;
         }
-        .tool :hover{
-            color:#eee;
+
+        .tool :hover {
+            color: #eee;
             cursor: pointer;
         }
-        .tool > .more{
+
+        .tool>.more {
             opacity: 0;
-            transform:scale(0);
-            -transform:scale(0);
+            transform: scale(0);
+            -transform: scale(0);
         }
-        .tool:hover{
-            height:100px;
+
+        .tool:hover {
+            height: 100px;
         }
-        .tool:hover .more{
+
+        .tool:hover .more {
             opacity: 1;
             transform: scale(1);
-            -transform:scale(1);
+            -transform: scale(1);
         }
     </style>
     <title>王佳营的个人简历</title>
 </head>
+
 <body>
     <div class="body">
         <div id="header">
@@ -160,13 +193,13 @@
         <div class="block">
             <div class="title">工作经历</div>
             <table id="workEx">
-                
+
             </table>
         </div>
         <div class="block">
             <div class="title">教育经历</div>
             <table id="eduEx">
-                           
+
             </table>
         </div>
         <div class="block">
@@ -197,66 +230,87 @@
 </body>
 
 <script>
-const model = {
-     workEx:[
-         {datetime:"2017-04 至 今 ", company:"北京航天第九研究院",department:"北京航天光华电子技术有限公司", duty:"研发工程师"}, 
-         {datetime:"2016-04 至 2016-11 ", company:"北京滴滴出行", department: "大数据平台部门", duty:"前端开发（实习）"}, 
-         {datetime:"2015-10 至 2016-03", company:"北京轻元科技有限公司", department:"UX开发部", duty:"Web开发 （实习）"}
-         ],
-     eduEx:[
-         {datetime:"2014.9 -2017.4", school:"北京邮电大学（研究生）", major:"计算机技术"},
-         {datetime:"2010.9 - 2014.6", school:"河北金融学院（本科）", major:"信息与计算科学"}
-     ],
-     skill:[
-        "两年以上前端 / WEB开发经验（2年工作经验 + 1年实习经验）",
-        "熟练掌握JavaScript原生语言，对JavaScript的继承模式，闭包，事件流等有深刻理解；可以使用原生语言开发网页基本功能",
-        "熟练掌握Vue开发框架，掌握Component、Vuex、vue-router；熟悉Webpack打包模式；常用技术栈：vue + vuex + vue-router + elementUI + axios",
-        "熟练掌握HTML/CSS、CSS/DIV布局；熟悉CSS3和SCSS",
-        "熟悉Node，深入理解Node的事件流与异步特性；有多个基于Node的web工具开发经验",
-        "熟悉Java， 熟练掌握SpingMVC、Spring boot开发框架，有多个基于Java Spring的开发经验",
-        "熟练掌握HTTP协议， Websocket协议",
-        "熟悉SQL，了解数据库的基本原理；熟悉Java ORM，如Mybatis， JPA等"
-     ],
-     project:[
-        {
-            name:"智能养老平台", 
-            background:"此平台是智能养老系统的信息输出端口，用于显示智能护理设备的采集信息；第二版使用vue+c# mvc5技术栈，优化数据逻辑，简化开发流程。", 
-            content:[
+    const model = {
+        workEx: [{
+                datetime: "2017-04 至 今 ",
+                company: "北京航天第九研究院",
+                department: "北京航天光华电子技术有限公司",
+                duty: "研发工程师"
+            },
+            {
+                datetime: "2016-04 至 2016-11 ",
+                company: "北京滴滴出行",
+                department: "大数据平台部门",
+                duty: "前端开发（实习）"
+            },
+            {
+                datetime: "2015-10 至 2016-03",
+                company: "北京轻元科技有限公司",
+                department: "UX开发部",
+                duty: "Web开发 （实习）"
+            }
+        ],
+        eduEx: [{
+                datetime: "2014.9 -2017.4",
+                school: "北京邮电大学（研究生）",
+                major: "计算机技术"
+            },
+            {
+                datetime: "2010.9 - 2014.6",
+                school: "河北金融学院（本科）",
+                major: "信息与计算科学"
+            }
+        ],
+        skill: [
+            "两年以上前端 / WEB开发经验（2年工作经验 + 1年实习经验）",
+            "熟练掌握JavaScript原生语言，对JavaScript的继承模式，闭包，事件流等有深刻理解；可以使用原生语言开发网页基本功能",
+            "熟练掌握Vue开发框架，掌握Component、Vuex、vue-router；熟悉Webpack打包模式；常用技术栈：vue + vuex + vue-router + elementUI + axios",
+            "熟练掌握HTML/CSS、CSS/DIV布局；熟悉CSS3和SCSS",
+            "熟悉Node，深入理解Node的事件流与异步特性；有多个基于Node的web工具开发经验",
+            "熟悉Java， 熟练掌握SpingMVC、Spring boot开发框架，有多个基于Java Spring的开发经验",
+            "熟练掌握HTTP协议， Websocket协议",
+            "熟悉SQL，了解数据库的基本原理；熟悉Java ORM，如Mybatis， JPA等"
+        ],
+        project: [{
+                name: "智能养老平台",
+                background: "此平台是智能养老系统的信息输出端口，用于显示智能护理设备的采集信息；第二版使用vue+c# mvc5技术栈，优化数据逻辑，简化开发流程。",
+                content: [
                     "使用vue框架重构前端开发，包括：自定义组件封装、统一的配置管理、前端路由；优化后，减少了项目维护成本，一定程度上避免了开发失误。",
                     "优化数据库表结构和后台数据类的关系，增强类与类之间的联系；联合c#MVC5框架",
                     "后台Model与DTO分离，减少http请求信息；优化接口设计",
                     "完善前端UI设计"
                 ]
-        },
-        {
-            name:"Web视频通话工具", 
-            background:"一款能够基于Web的视频通话工具，支持多房间、多人在线视频通话和文件传输。", 
-            content:[
-                "使用webRTC技术完成视频通话功能",
-                "使用Websocket完成信令传输和识别",
-                "使用Nodejs 进行信令服务器的开发"
-            ]
-        },
-        {
-            name:"电塔监测平台", 
-            background:"一个实时监测高压杆塔环境参数的系统；一个杆塔搭载多种类型的传感器，每类传感器每100ms向服务器发送一次socket数据；服务器将数据解析，存入数据库；Web平台负责显示整合各类数据。", 
-            content:[
-                "整体使用vue_cli手脚架开发架构，vuex配合vue-router实现动态的前端鉴权",
-                "使用WEBGL技术，结合传感器数据动态渲染杆塔图像",
-                "ArcGIS集成",
-                "基于Java Spring boot开发框架，Spring jpa + mysql完成数据持久化",
-                "使用shiro完成后台的身份和鉴权管理",
-                "完善数据库设计，力求降低由于数据体量多大，造成前端查询和实时显示和延时情况"
-            ]
-        }
-     ],
- }
+            },
+            {
+                name: "Web视频通话工具",
+                background: "一款能够基于Web的视频通话工具，支持多房间、多人在线视频通话和文件传输。",
+                content: [
+                    "使用webRTC技术完成视频通话功能",
+                    "使用Websocket完成信令传输和识别",
+                    "使用Nodejs 进行信令服务器的开发"
+                ]
+            },
+            {
+                name: "电塔监测平台",
+                background: "一个实时监测高压杆塔环境参数的系统；一个杆塔搭载多种类型的传感器，每类传感器每100ms向服务器发送一次socket数据；服务器将数据解析，存入数据库；Web平台负责显示整合各类数据。",
+                content: [
+                    "整体使用vue_cli手脚架开发架构，vuex配合vue-router实现动态的前端鉴权",
+                    "使用WEBGL技术，结合传感器数据动态渲染杆塔图像",
+                    "ArcGIS集成",
+                    "基于Java Spring boot开发框架，Spring jpa + mysql完成数据持久化",
+                    "使用shiro完成后台的身份和鉴权管理",
+                    "完善数据库设计，力求降低由于数据体量多大，造成前端查询和实时显示和延时情况"
+                ]
+            }
+        ],
+    }
 
-const controller = {
-    renderWorkEx: function(){
-        let innerHTML = ""
-        model.workEx.forEach(item => {
-            let temp = `<tr>
+    const controller = {
+        renderWorkEx: function () {
+            let innerHTML = ""
+            model.workEx.forEach(item => {
+                let temp =
+                    `<tr>
                             <td class="datetime">${item.datetime}</td>
                             <td>
                                 <span class="company"> ${item.company}</span>
@@ -264,36 +318,38 @@ const controller = {
                             </td>
                             <td class="duty">${item.duty}</td>
                         <tr>`
-            innerHTML += temp
-        })
-        return innerHTML;
-    },
-    renderEduEx: function(){
-        let innerHTML = ""
-        model.eduEx.forEach(item => {
-            let temp = `<tr>
+                innerHTML += temp
+            })
+            return innerHTML;
+        },
+        renderEduEx: function () {
+            let innerHTML = ""
+            model.eduEx.forEach(item => {
+                let temp =
+                    `<tr>
                             <td>
                                 ${item.datetime}
                                 <span class="school">${item.school}</span>
                             </td>
                             <td class="datetime">${item.major}</td>
                         </tr>`
-            innerHTML += temp
-        })
-        return innerHTML
-    },
-    renderSkill: function(){
-        let innerHTML = ""
-        model.skill.forEach(item => {
-            let temp = `<li>${item}</li>`
-            innerHTML += temp
-        })
-        return innerHTML;
-    },
-    renderProject: function(){
-        let inner = ""
-        model.project.forEach(obj => {
-            let temp = `<li>
+                innerHTML += temp
+            })
+            return innerHTML
+        },
+        renderSkill: function () {
+            let innerHTML = ""
+            model.skill.forEach(item => {
+                let temp = `<li>${item}</li>`
+                innerHTML += temp
+            })
+            return innerHTML;
+        },
+        renderProject: function () {
+            let inner = ""
+            model.project.forEach(obj => {
+                let temp =
+                    `<li>
                             <div class="li-header"><span>${obj.name}</span></div>
                             <div class="background">
                                 <span>项目背景：</span>
@@ -302,93 +358,90 @@ const controller = {
                             <div class="content">
                                 <span>工作内容：</span>
                                 <ul>`
-            obj.content.forEach(item => {
-                let temp2 = `<li>${item}</li>`
-                temp += temp2
+                obj.content.forEach(item => {
+                    let temp2 = `<li>${item}</li>`
+                    temp += temp2
+                })
+                temp += `</ul></div></li>`
+                inner += temp
             })
-            temp += `</ul></div></li>`
-            inner += temp
-        })
-        return inner;
-    }
-}
-
-const tool = {
-    copy: function(input){
-        let success = true;
-        if (window.clipboardData) { // IE
-            window.clipboardData.setData ("Text", input);
-            return success;
+            return inner;
         }
-        else {
-            const forExecElement = tool.CreateElementForExecCommand (input);
-            tool.SelectContent (forExecElement);
+    }
 
-            let supported = true;
+    const tool = {
+        copy: function (input) {
+            let success = true;
+            if (window.clipboardData) { // IE
+                window.clipboardData.setData("Text", input);
+                return success;
+            } else {
+                const forExecElement = tool.CreateElementForExecCommand(input);
+                tool.SelectContent(forExecElement);
 
-            try {
-                if (window.netscape && netscape.security) {
-                    netscape.security.PrivilegeManager.enablePrivilege ("UniversalXPConnect");
+                let supported = true;
+
+                try {
+                    if (window.netscape && netscape.security) {
+                        netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+                    }
+
+                    success = document.execCommand("copy", false, null);
+                } catch (e) {
+                    success = false;
                 }
+                document.body.removeChild(forExecElement);
+            }
+            return success;
+        },
 
-                success = document.execCommand ("copy", false, null);
-            }
-            catch (e) {
-                success = false;
-            }
-            document.body.removeChild (forExecElement);
+        CreateElementForExecCommand: function (textToClipboard) {
+            const forExecElement = document.createElement("div");
+            forExecElement.style.position = "absolute";
+            forExecElement.style.left = "-10000px";
+            forExecElement.style.top = "-10000px";
+            forExecElement.textContent = textToClipboard;
+            document.body.appendChild(forExecElement);
+            forExecElement.contentEditable = true;
+
+            return forExecElement;
+        },
+
+        SelectContent: function (element) {
+            const rangeToSelect = document.createRange();
+            rangeToSelect.selectNodeContents(element);
+
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(rangeToSelect);
         }
-        return success;
-    },
-
-    CreateElementForExecCommand: function (textToClipboard) {
-        const forExecElement = document.createElement ("div");
-        forExecElement.style.position = "absolute";
-        forExecElement.style.left = "-10000px";
-        forExecElement.style.top = "-10000px";
-        forExecElement.textContent = textToClipboard;
-        document.body.appendChild (forExecElement);
-        forExecElement.contentEditable = true;
-
-        return forExecElement;
-    },
-
-    SelectContent: function  (element) {
-        const rangeToSelect = document.createRange ();
-        rangeToSelect.selectNodeContents (element);
-
-        const selection = window.getSelection ();
-        selection.removeAllRanges ();
-        selection.addRange (rangeToSelect);
     }
-}
 
-const view = {
-     header: document.querySelector("#header"),
-     workEx : document.querySelector("#workEx"),
-     eduEx: document.querySelector("#eduEx"),
-     skill: document.querySelector("#skill"),
-     project: document.querySelector("#project"),
+    const view = {
+        header: document.querySelector("#header"),
+        workEx: document.querySelector("#workEx"),
+        eduEx: document.querySelector("#eduEx"),
+        skill: document.querySelector("#skill"),
+        project: document.querySelector("#project"),
 
-     ready: function(){
-         workEx.innerHTML = controller.renderWorkEx()
-         eduEx.innerHTML = controller.renderEduEx()
-         skill.innerHTML = controller.renderSkill()
-         project.innerHTML = controller.renderProject()
+        ready: function () {
+            workEx.innerHTML = controller.renderWorkEx()
+            eduEx.innerHTML = controller.renderEduEx()
+            skill.innerHTML = controller.renderSkill()
+            project.innerHTML = controller.renderProject()
 
-         document.querySelector("#connect").addEventListener("click", function(e){
-             console.log(window)
-             if(tool.copy("w0320jy@163.com")){
-                 alert("E-mail 已经复制到粘贴板 ^ ^")
-             }
-         }, false)
-     },
-     firstSight: function(){
+            //  document.querySelector("#connect").addEventListener("click", function(e){
+            //      console.log(window)
+            //      if(tool.copy("w0320jy@163.com")){
+            //          alert("E-mail 已经复制到粘贴板 ^ ^")
+            //      }
+            //  }, false)
+        },
+        firstSight: function () {
 
-     }
- }
-view.ready()
-
-
+        }
+    }
+    view.ready()
 </script>
+
 </html>
