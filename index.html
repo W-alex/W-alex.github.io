@@ -19,7 +19,7 @@
         }
         body{
             width:65%;
-            margin:auto;
+            margin:10px auto;
             background-color: #fff;
         }
         table{
@@ -46,6 +46,7 @@
         .body > .block{
             margin: 20px 0;
         }
+        
         .body>#header .title{
             position: absolute;;
             width:80px;
@@ -66,6 +67,7 @@
         }
         #info{
             font-size:18px;
+            z-index: 99;
         }
         #name{
             font-size:30px;
@@ -102,14 +104,29 @@
             margin-right:5px;
         }
 
-       
+        /* 动画效果
+        #header {
+            transform: scale(1,15);
+        }
+        #header>.title {
+            position: absolute;
+            right:0;
+            left:0;
+            top:10px;
+            margin:auto;
+            transform: scale(4,0.2)
+        }
+        #haeder:hover{
+            transform:scale(1,0.1);
+            transition:all 2s;
+        } */
     </style>
-    <title>啦啦啦</title>
+    <title>王佳营的个人简历</title>
 </head>
 <body>
     <div class="body">
         <div id="header">
-            <div class="title">个人简历</div>
+            <div class="title"><span style="margin:auto">个人简历</span></div>
         </div>
         <div class="info">
             <table id="info">
