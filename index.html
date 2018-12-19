@@ -137,6 +137,7 @@
         }
 
         .tool,
+        .good,
         .tool>.more {
             height: 50px;
             width: 50px;
@@ -172,6 +173,24 @@
             opacity: 1;
             transform: scale(1);
             -transform: scale(1);
+        }
+
+        .good {
+            opacity: 1;
+            transform: scale(0);
+            background-color: initial;
+            color: #999;
+            position: absolute;
+            top: -100px;
+            left: 5px;
+            /* donghua */
+            transition: all 1s ease-out;
+            transform-origin: 50px 50px
+        }
+
+        .good.click {
+            opacity: 0;
+            transform: scale(5);
         }
     </style>
     <title>王佳营的个人简历</title>
@@ -224,6 +243,7 @@
         </div>
         <div class="tool">
             <span id="connect" class="glyphicon glyphicon-thumbs-up" title="联系她!"></span>
+            <div class="good"><span class="glyphicon glyphicon-thumbs-up"></span></div>
             <div class="more"><a class="glyphicon glyphicon-link" href="./animation.html" target="_blank" title="更多作品"></a></div>
         </div>
     </div>
@@ -430,16 +450,15 @@
             skill.innerHTML = controller.renderSkill()
             project.innerHTML = controller.renderProject()
 
-            //  document.querySelector("#connect").addEventListener("click", function(e){
-            //      console.log(window)
-            //      if(tool.copy("w0320jy@163.com")){
-            //          alert("E-mail 已经复制到粘贴板 ^ ^")
-            //      }
-            //  }, false)
+            document.querySelector("#connect").addEventListener("click", function (e) {
+                e.preventDefault();
+                const target = document.querySelector(".tool .good")
+                target.classList.add("click")
+                setTimeout(function () {
+                    target.classList.remove("click")
+                }, 100)
+            }, false)
         },
-        firstSight: function () {
-
-        }
     }
     view.ready()
 </script>
