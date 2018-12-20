@@ -25,7 +25,7 @@
         body {
             width: 65%;
             margin: 10px auto;
-            background-color: #fff;
+            position: relative;
         }
 
         table {
@@ -44,6 +44,12 @@
         a:hover {
             text-decoration: none;
             color: inherit;
+            background-color: #fff;
+        }
+
+        .body {
+            position: absolute;
+            background-color: #fff;
         }
 
         .title {
@@ -174,42 +180,12 @@
             transform: scale(1);
             -transform: scale(1);
         }
-        /* thumbs up keyframes */
-        @keyframes thumbsUp{
-            from{
-                transform:scale(0);
-                -webkit-transform:scale(0);
-                -transform: scale(0);
-                opacity: 1;
-                top: -20px;
 
-            }
-            to{
-                transform: scale(3);
-                -webkit-transform:scale(3);
-                -transform: scale(3);
-                opacity: 0;
-                top: -150px;
-            }
+        .body.shake {
+            animation: shake 0.5s ease-in-out;
+            -webkit-animation: shake 0.5s ease-in-out;
         }
-        @-webkit-keyframes thumbsUp{
-            from{
-                transform:scale(0);
-                -webkit-transform:scale(0);
-                -transform: scale(0);
-                opacity: 1;
-                top: -20px;
 
-            }
-            to{
-                transform: scale(3);
-                -webkit-transform:scale(3);
-                -transform: scale(3);
-                opacity: 0;
-                top: -150px;
-
-            }
-        }
         .good {
             opacity: 1;
             transform: scale(0);
@@ -221,8 +197,137 @@
         }
 
         .good.click {
-            animation: thumbsUp 1s ease-out ;
+            animation: thumbsUp 1s ease-out;
             -webkit-animation: thumbsUp 1s ease-out;
+        }
+
+        /* —————————— */
+        /*  *************************动画部分************************ */
+        /* —————————— */
+        /* body keyFrames */
+        @keyframes shake {
+
+            from,
+            end {
+                opacity: 1;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+            }
+
+            20% {
+                left: -5px;
+                top: -5px;
+            }
+
+            40% {
+                left: 0;
+                top: -5px;
+                right: -5px;
+                bottom: 0;
+            }
+
+            /* 50% {
+                opacity: 0.6;
+            } */
+
+            60% {
+                left: -5px;
+                top: 0;
+                right: 0;
+                bottom: -5px;
+            }
+
+            80% {
+                left: 0;
+                top: 0;
+                right: -5px;
+                bottom: -5px;
+            }
+        }
+
+        @-webkit-keyframes shake {
+
+            from,
+            end {
+                opacity: 1;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+            }
+
+            20% {
+                left: -5px;
+                top: -5px;
+            }
+
+            40% {
+                left: 0;
+                top: -5px;
+                right: -5px;
+                bottom: 0;
+            }
+
+            /* 50% {
+                opacity: 0.6;
+            } */
+
+            60% {
+                left: -5px;
+                top: 0;
+                right: 0;
+                bottom: -5px;
+            }
+
+            80% {
+                left: 0;
+                top: 0;
+                right: -5px;
+                bottom: -5px;
+            }
+
+        }
+
+        /* thumbs up keyframes */
+        @keyframes thumbsUp {
+            from {
+                transform: scale(0);
+                -webkit-transform: scale(0);
+                -transform: scale(0);
+                opacity: 1;
+                top: -20px;
+
+            }
+
+            to {
+                transform: scale(3);
+                -webkit-transform: scale(3);
+                -transform: scale(3);
+                opacity: 0;
+                top: -150px;
+            }
+        }
+
+        @-webkit-keyframes thumbsUp {
+            from {
+                transform: scale(0);
+                -webkit-transform: scale(0);
+                -transform: scale(0);
+                opacity: 1;
+                top: -20px;
+
+            }
+
+            to {
+                transform: scale(3);
+                -webkit-transform: scale(3);
+                -transform: scale(3);
+                opacity: 0;
+                top: -150px;
+
+            }
         }
     </style>
     <title>王佳营的个人简历</title>
@@ -275,7 +380,7 @@
         </div>
         <div class="tool">
             <span id="connect" class="glyphicon glyphicon-thumbs-up" title="给她点赞！"></span>
-            <div class="good"><span class="glyphicon glyphicon-thumbs-up"></span></div>
+            <div class="good"></div>
             <!-- <div class="more"><a class="glyphicon glyphicon-link" href="./animation.html" target="_blank" title="更多作品"></a></div> -->
         </div>
     </div>
@@ -358,6 +463,7 @@
     }
 
     const controller = {
+        clickCount: 0,
         renderWorkEx: function () {
             let innerHTML = ""
             model.workEx.forEach(item => {
@@ -421,60 +527,14 @@
         }
     }
 
-    const tool = {
-        copy: function (input) {
-            let success = true;
-            if (window.clipboardData) { // IE
-                window.clipboardData.setData("Text", input);
-                return success;
-            } else {
-                const forExecElement = tool.CreateElementForExecCommand(input);
-                tool.SelectContent(forExecElement);
-
-                let supported = true;
-
-                try {
-                    if (window.netscape && netscape.security) {
-                        netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
-                    }
-
-                    success = document.execCommand("copy", false, null);
-                } catch (e) {
-                    success = false;
-                }
-                document.body.removeChild(forExecElement);
-            }
-            return success;
-        },
-
-        CreateElementForExecCommand: function (textToClipboard) {
-            const forExecElement = document.createElement("div");
-            forExecElement.style.position = "absolute";
-            forExecElement.style.left = "-10000px";
-            forExecElement.style.top = "-10000px";
-            forExecElement.textContent = textToClipboard;
-            document.body.appendChild(forExecElement);
-            forExecElement.contentEditable = true;
-
-            return forExecElement;
-        },
-
-        SelectContent: function (element) {
-            const rangeToSelect = document.createRange();
-            rangeToSelect.selectNodeContents(element);
-
-            const selection = window.getSelection();
-            selection.removeAllRanges();
-            selection.addRange(rangeToSelect);
-        }
-    }
-
     const view = {
         header: document.querySelector("#header"),
         workEx: document.querySelector("#workEx"),
         eduEx: document.querySelector("#eduEx"),
         skill: document.querySelector("#skill"),
         project: document.querySelector("#project"),
+        target: document.querySelector(".tool .good"),
+        body: document.querySelector(".body"),
 
         ready: function () {
             workEx.innerHTML = controller.renderWorkEx()
@@ -483,12 +543,14 @@
             project.innerHTML = controller.renderProject()
 
             document.querySelector("#connect").addEventListener("click", function (e) {
-                e.preventDefault();
-                const target = document.querySelector(".tool .good")
-                target.classList.add("click")
+                controller.clickCount++
+                view.target.classList.add("click")
+                view.target.innerHTML = "+" + controller.clickCount
+                view.body.classList.add("shake")
                 setTimeout(function () {
-                    target.classList.remove("click")
-                }, 500)
+                    view.target.classList.remove("click")
+                    view.body.classList.remove("shake")
+                }, 400)
             }, false)
         },
     }
