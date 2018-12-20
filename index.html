@@ -165,32 +165,64 @@
             -transform: scale(0);
         }
 
-        .tool:hover {
+        /* .tool:hover {
             height: 100px;
-        }
+        } */
 
         .tool:hover .more {
             opacity: 1;
             transform: scale(1);
             -transform: scale(1);
         }
+        /* thumbs up keyframes */
+        @keyframes thumbsUp{
+            from{
+                transform:scale(0);
+                -webkit-transform:scale(0);
+                -transform: scale(0);
+                opacity: 1;
+                top: -100px;
 
+            }
+            to{
+                transform: scale(3);
+                -webkit-transform:scale(3);
+                -transform: scale(3);
+                opacity: 0;
+                top: -250px;
+            }
+        }
+        @-webkit-keyframes thumbsUp{
+            from{
+                transform:scale(0);
+                -webkit-transform:scale(0);
+                -transform: scale(0);
+                opacity: 1;
+                top: -100px;
+
+            }
+            to{
+                transform: scale(3);
+                -webkit-transform:scale(3);
+                -transform: scale(3);
+                opacity: 0;
+                top: -250px;
+
+            }
+        }
         .good {
             opacity: 1;
             transform: scale(0);
             background-color: initial;
-            color: #999;
+            color: #ff5959;
             position: absolute;
             top: -100px;
             left: 5px;
-            /* donghua */
-            transition: all 1s ease-out;
-            transform-origin: 50px 50px
         }
 
         .good.click {
-            opacity: 0;
-            transform: scale(5);
+            animation: thumbsUp 1s ease-out ;
+            -webkit-animation: thumbsUp 1s ease-out;
         }
     </style>
     <title>王佳营的个人简历</title>
@@ -242,9 +274,9 @@
             </ul>
         </div>
         <div class="tool">
-            <span id="connect" class="glyphicon glyphicon-thumbs-up" title="联系她!"></span>
+            <span id="connect" class="glyphicon glyphicon-thumbs-up" title="给她点赞！"></span>
             <div class="good"><span class="glyphicon glyphicon-thumbs-up"></span></div>
-            <div class="more"><a class="glyphicon glyphicon-link" href="./animation.html" target="_blank" title="更多作品"></a></div>
+            <!-- <div class="more"><a class="glyphicon glyphicon-link" href="./animation.html" target="_blank" title="更多作品"></a></div> -->
         </div>
     </div>
 </body>
